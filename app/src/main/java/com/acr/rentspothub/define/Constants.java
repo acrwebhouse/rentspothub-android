@@ -4,7 +4,8 @@ package com.acr.rentspothub.define;
  * Created by Chris.Wu on 2016/10/21.
  */
 public class Constants {
-    public static String SERVER_URL = "https://matchrentdev.com";
+//    public static String SERVER_URL = "https://matchrentdev.com";
+    public static String SERVER_URL = "https://rentspothub.com";
 //      public static String SERVER_URL = "http://192.168.0.100:3000";
 //      public static String SERVER_URL = "http://192.168.0.11:3000";
     //web url
