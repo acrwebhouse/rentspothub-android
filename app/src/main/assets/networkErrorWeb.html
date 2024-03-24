@@ -1,0 +1,120 @@
+<html>
+<head>
+    <meta name=”viewport” content=”width=device-width, initial-scale=1.0">
+    <style>
+
+        .box1 {
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            position: fixed
+         }
+
+        .content {
+            text-align: center;
+            font-family: oxxo, serif;
+        }
+
+        .center {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100px;
+        }
+        .loadIcon {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100px;
+          transform: translateY(40px);
+        }
+
+        .warningSign {
+          justify-content: center;
+          align-items: center;
+          height: 200px;
+        }
+        .button {
+          display: inline-block;
+          padding: 15px 25px;
+          font-size: 24px;
+          cursor: pointer;
+          text-align: center;
+          text-decoration: none;
+          outline: none;
+          color: #fff;
+          background-color: #1E90FF;
+          border: none;
+          border-radius: 15px;
+          box-shadow: 0 9px #999;
+          align-items: center;
+          position: relative;
+          font-family:  LiHei Pro ;
+        }
+
+        .button:hover {background-color: #0f83ee}
+
+        .button:active {
+          background-color: #0f83ee;
+          box-shadow: 0 5px #666;
+          transform: translateY(4px);
+        }
+        .loader {
+          border: 16px solid #f3f3f3;
+          border-radius: 50%;
+          border-top: 16px solid #3498db;
+          width: 120px;
+          height: 120px;
+          -webkit-animation: spin 2s linear infinite; /* Safari */
+          animation: spin 1.0s linear infinite;
+        }
+
+        /* Safari */
+        @-webkit-keyframes spin {
+          0% { -webkit-transform: rotate(0deg); }
+          100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+    </style>
+
+</head>
+<body class="box1">
+
+<div>
+    <img src="./warning-sign.jpg" class="warningSign"/>
+    <h1 class="content" >網路不穩定請重新啟動</h1>
+    <div class="center">
+        <button id="myBtn" class="button">
+            重啟
+        </button>
+    </div>
+    <div class="loadIcon">
+        <h1 class='noLoad' id="loading"></h1>
+    </div>
+</div>
+<script>
+        const element = document.getElementById("myBtn");
+        element.addEventListener("click", loadingFn);
+
+        function myFunction() {
+          if(typeof(appJsInterface) !== 'undefined'){
+             appJsInterface.restartApp();
+          }
+        }
+
+        function loadingFn() {
+            document.querySelector('.noLoad').className='loader'
+<!--            document.getElementById("loading").innerHTML = "LOADING!"-->
+            setTimeout(() => {
+                myFunction()
+                document.querySelector('.noLoad').className='noLoad'
+            }, 2000)
+        }
+    </script>
+</body>
+</html>
